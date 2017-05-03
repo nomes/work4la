@@ -1,0 +1,3 @@
+[run]
+source = work4la
+omit = work4la/test*
