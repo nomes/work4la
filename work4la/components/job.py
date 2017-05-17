@@ -24,7 +24,11 @@ SAMPLE_JOB = {
     'job_description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis hendrerit massa id congue iaculis. Vivamus bibendum eleifend semper. Pellentesque vitae nulla velit. Morbi ac viverra ligula. Pellentesque non odio ligula. Curabitur massa nunc, lacinia blandit odio sodales, hendrerit ornare neque.'
 }
 
+DB = {'chief-of-airport-planning': SAMPLE_JOB}
+
 
 def get_job_by_id(job_id):
     """Main getter for job details."""
-    return SAMPLE_JOB
+    if job_id not in DB:
+        return None
+    return DB[job_id]
