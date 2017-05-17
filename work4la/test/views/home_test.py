@@ -1,23 +1,26 @@
+# -*- coding: utf-8 -*-
 import unittest
 
 from pyramid import testing
 
+from work4la.views import home
 
-class ViewTests(unittest.TestCase):
+
+class HomeTest(unittest.TestCase):
+
     def setUp(self):
         self.config = testing.setUp()
 
     def tearDown(self):
         testing.tearDown()
 
-    def test_my_view(self):
-        from .views import my_view
+    def test_view(self):
         request = testing.DummyRequest()
-        info = my_view(request)
-        self.assertEqual(info['project'], 'work4la')
+        self.assertEqual(home(request), {})
 
 
-class FunctionalTests(unittest.TestCase):
+class HomeFunctionalTest(unittest.TestCase):
+
     def setUp(self):
         from work4la import main
         app = main({})
@@ -26,4 +29,8 @@ class FunctionalTests(unittest.TestCase):
 
     def test_root(self):
         res = self.testapp.get('/', status=200)
-        self.assertTrue(b'Pyramid' in res.body)
+        self.assertTrue(b'Work For LA' in res.body)
+
+
+if __name__ == '__main__':
+    unittest.main()
