@@ -18,3 +18,13 @@ def view_job(request):
         raise HTTPNotFound()
 
     return { 'job': job }
+
+
+@view_config(route_name='subscribe', request_method='POST', renderer='json')
+def subscribe(request):
+    # TODO(#2):
+    # + validate request params
+    # + record subscription and return user-friendly msg
+    email = request.params['email']
+    job_id = int(request.params['job_id'])
+    return {'success': True, 'email': email, 'job_id': job_id}
