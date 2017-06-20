@@ -6,7 +6,8 @@
 SAMPLE_JOB = {
     'class_code': 7945,
     'classspec_id': 741268,
-    'id': 'chief-of-airport-planning',
+    'id': 1,
+    'alias': 'chief-of-airport-planning',
     'title': 'Chief of Airport Planning',
     'category': 'Architecture and Engineering',
     'salary_low': 60000,
@@ -27,8 +28,8 @@ SAMPLE_JOB = {
 DB = {'chief-of-airport-planning': SAMPLE_JOB}
 
 
-def get_job_by_id(job_id):
+def get_job_by_alias(job_alias):
     """Main getter for job details."""
-    if job_id not in DB:
+    if job_alias not in DB:
         return None
-    return DB[job_id]
+    return DB[job_alias]

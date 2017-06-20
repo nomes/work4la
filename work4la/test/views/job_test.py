@@ -14,8 +14,11 @@ class JobFunctionalTest(unittest.TestCase):
         from webtest import TestApp
         self.testapp = TestApp(app)
 
-    def test_no_id_provided(self):
+    def test_bad_alias(self):
         res = self.testapp.get('/job/foo', status=404)
+
+    def test_no_alias(self):
+        res = self.testapp.get('/job', status=404)
 
     def test_simple_view(self):
         res = self.testapp.get('/job/chief-of-airport-planning', status=200)
