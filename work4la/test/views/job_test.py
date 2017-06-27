@@ -1,18 +1,10 @@
 # -*- coding: utf-8 -*-
 import unittest
 
-from pyramid import testing
-
-from work4la.views import view_job
+from work4la.test.util.app_test_case import AppTestCase
 
 
-class JobFunctionalTest(unittest.TestCase):
-
-    def setUp(self):
-        from work4la import main
-        app = main({})
-        from webtest import TestApp
-        self.testapp = TestApp(app)
+class JobFunctionalTest(AppTestCase):
 
     def test_bad_alias(self):
         res = self.testapp.get('/job/foo', status=404)
