@@ -1,19 +1,11 @@
 # -*- coding: utf-8 -*-
-import json
 import unittest
 
-from pyramid import testing
-
+from work4la.test.util.app_test_case import AppTestCase
 from work4la.views import subscribe
 
 
-class SubscribeFunctionalTest(unittest.TestCase):
-
-    def setUp(self):
-        from work4la import main
-        app = main({})
-        from webtest import TestApp
-        self.testapp = TestApp(app)
+class SubscribeFunctionalTest(AppTestCase):
 
     def test_get_404s(self):
         self.testapp.get('/subscribe', status=404)

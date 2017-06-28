@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import unittest
 
-
 from work4la.components.job import get_job_by_alias
 
 
